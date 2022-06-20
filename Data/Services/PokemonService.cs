@@ -13,7 +13,8 @@ namespace NatWest.Data
 
         public List<Pokemon> GetPokemons()
         {
-            return _pokemons.ToList();
+            var pokemons = from pok in _pokemons orderby pok.Name select pok;
+            return pokemons.ToList();
         } 
 
         public Pokemon GetPokemonById(int pokemonId)
